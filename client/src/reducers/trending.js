@@ -16,7 +16,7 @@ const trending = (state = initialState, action) => {
   else if (action.type === trendingActions.FETCH_TRENDING_SUCCESS){
     return Object.assign({}, state, {
       data: action.trending,
-      loading: false,
+      loading: false, 
       error: null
     })
   }
