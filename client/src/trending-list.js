@@ -9,9 +9,16 @@ class TrendingList extends Component {
   }
   render() {
     const trending = this.props.trending.map((product, index) => <li key={index}>{product.name}</li>);
+    const images = this.props.trending.map((product, index) =>
+       <img key={index} src={`${product.mediumImage}`} alt="" className="img-responsive"/>);
+    
     console.log(this.props)
     return (
-     <ul>{trending}</ul>
+          <div>
+             <ul>{trending}</ul>
+                  {images}
+          </div>
+     
     );
   }
 }
