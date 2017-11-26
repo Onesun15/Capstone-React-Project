@@ -8,7 +8,7 @@ class TrendingList extends Component {
     this.props.dispatch(fetchTrending())
   }
   render() {
-    const trending = this.props.trending.trending.map((product, index) => <li key={index}>{product.name}</li>);
+    const trending = this.props.trending.map((product, index) => <li key={index}>{product.name}</li>);
     console.log(this.props)
     return (
      <ul>{trending}</ul>
@@ -17,6 +17,6 @@ class TrendingList extends Component {
 }
 
 const mapStateToProps = (state, props) => ({
-  trending: state.trending
+  trending: state.trending.data
 })
 export default connect(mapStateToProps)(TrendingList);

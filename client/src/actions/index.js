@@ -16,7 +16,9 @@ export const fetchTrendingError = error => ({
 })
 export const fetchTrending = () => dispatch => {
   dispatch(fetchTrendingRequest())
-  return fetch(`http://api.walmartlabs.com/v1/trends?apiKey=btbth79qwypgtfubhamzjc4u&format=json`)
+  return fetch(`https://cors-anywhere.herokuapp.com/http://api.walmartlabs.com/v1/trends?apiKey=btbth79qwypgtfubhamzjc4u&format=json`,
+  {"x-requested-with": "xhr"}
+  )
   .then(response => {
     if(!response.ok){
     throw new Error(response.statusText)
