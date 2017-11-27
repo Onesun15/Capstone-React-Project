@@ -8,9 +8,14 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const { router: usersRouter} = require('./users/router');
+require('dotenv').config();
+//const passport = require('passport');
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+const { router: usersRouter} = require('./users');
+const { User } = require('./users/models');
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
-// const {dbConnect} = require('./db-knex');
 
 const app = express();
 // passport.use(basicStrategy);
@@ -27,6 +32,7 @@ app.use(
     origin: CLIENT_ORIGIN
   })
 );
+
 function runServer(port = PORT) {
   const server = app
     .listen(port, () => {
