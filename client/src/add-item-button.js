@@ -1,22 +1,12 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
 
-class AddItemButton extends Component {
 
-  render() {
-     const onSubmit = e => e.preventDefault();
-    return (
-      <form onSubmit={onSubmit}>
-      <input
-        type="submit"
-        id="add-item"
-        className="add-item"
-        name="submit"
-        value="Add Item"
-      />
+export default function AddItemButton(props) {
+  const onSubmit = e => e.preventDefault();
+  //console.log(props.itemId);
+  return (
+    <form onSubmit={onSubmit}>
+      <button className="add-item-button" onClick={() => props.onClick()}>Add Item</button>
     </form>
-    )
-  }
+  );
 }
-
-export default connect()(AddItemButton)

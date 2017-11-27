@@ -9,6 +9,11 @@ class TrendingList extends Component {
   componentDidMount() {
     this.props.dispatch(fetchTrending());
   }
+  
+addToDatabase() {
+  console.log('hello');
+}
+
   render() {
     const trending = this.props.trending.map((product, index) => (
       <li className="items-list" key={index}>
@@ -20,7 +25,7 @@ class TrendingList extends Component {
         />
         <div>${product.salePrice}</div>
         <div>{product.name}</div>
-        <AddItemButton />
+        <AddItemButton itemId={product.itemId} onClick={() => this.addToDatabase()}/>
       </li>
     ));
 

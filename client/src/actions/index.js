@@ -28,5 +28,26 @@ export const fetchTrending = () => dispatch => {
   .then(data => dispatch(fetchTrendingSuccess(data.items)))
   .catch(err => dispatch(fetchTrendingError(err))
   );
+
+
+  // export const ADD_ITEM_BUTTON_CLICK = 'ADD_ITEM_BUTTON_CLICK'
+  // export const addItemButtonClick = (item) => ({
+    
+  //   type: ADD_ITEM_BUTTON_CLICK,
+  // })
+
+  // export const ADD_ITEM_BUTTON_CLICK = (username, password) => dispatch => {
+  //   return (
+  //       fetch(`${API_BASE_URL}/api/users`, {
+  //           method: 'PUT',
+  //           headers: {
+  //               'Content-Type': 'application/json'
+  //           },
+  //           body: JSON.stringify({
+  //               name,
+  //               imgUrl
+  //           })
+  //       })
+
 }
 
