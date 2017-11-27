@@ -30,7 +30,6 @@ class TrendingList extends Component {
         <NavBar />
         <h2>Walmart Trending Products</h2>
         <ul className="items">{trending}</ul>
-        {/* {images} */}
       </div>
     );
   }
