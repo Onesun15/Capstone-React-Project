@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTrending } from './actions/index'
+import './trending-list.css';
 
 
 class TrendingList extends Component {
