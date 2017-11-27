@@ -4,13 +4,14 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
-const passport = require('passport')
+require('dotenv').config();
+//const passport = require('passport');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const { router: usersRouter} = require('./users');
+const { User } = require('./users/models');
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
-// const {dbConnect} = require('./db-knex');
 
 const app = express();
 
@@ -25,6 +26,14 @@ app.use(
     origin: CLIENT_ORIGIN
   })
 );
+
+app.get('/api/users', (req, res) => {
+  User
+    .find()
+    .then(user => {
+      console.log(user);
+      return res.send(user);});
+});
 
 app.get('/api/cheeses', (req, res) => {
   return res.json([
