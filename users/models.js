@@ -17,11 +17,15 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  list: {
-    type: Array,
-    default: [],
+  wishList: {
     required: false,
-    unique: false
+    unique: false,
+    item: [{
+      price: Number,
+      imgUrl: String,
+      description: String,
+      rating: 0
+    }]
   }
 });
 

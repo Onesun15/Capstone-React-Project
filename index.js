@@ -4,16 +4,18 @@ const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
-const passport = require('passport')
+const passport = require('passport');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const { router: usersRouter} = require('./users');
+const { router: usersRouter} = require('./users/router');
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
 // const {dbConnect} = require('./db-knex');
 
 const app = express();
-
+// passport.use(basicStrategy);
+// passport.use(jwtStrategy);
+app.use('/api/users/', usersRouter);
 app.use(
   morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
     skip: (req, res) => process.env.NODE_ENV === 'test'
@@ -25,29 +27,6 @@ app.use(
     origin: CLIENT_ORIGIN
   })
 );
-
-app.get('/api/cheeses', (req, res) => {
-  return res.json([
-    'Bath Blue',
-    'Barkham Blue',
-    'Buxton Blue',
-    'Cheshire Blue',
-    'Devon Blue',
-    'Dorset Blue Vinney',
-    'Dovedale',
-    'Exmoor Blue',
-    'Harbourne Blue',
-    'Lanark Blue',
-    'Lymeswold',
-    'Oxford Blue',
-    'Shropshire Blue',
-    'Stichelton',
-    'Stilton',
-    'Blue Wensleydale',
-    'Yorkshire Blue'
-  ]);
-});
-
 function runServer(port = PORT) {
   const server = app
     .listen(port, () => {
