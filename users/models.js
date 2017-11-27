@@ -19,7 +19,9 @@ const UserSchema = mongoose.Schema({
   },
   list: {
     type: Array,
-    default: []
+    default: [],
+    required: false,
+    unique: false
   }
 });
 
