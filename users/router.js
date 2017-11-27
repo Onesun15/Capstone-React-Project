@@ -7,9 +7,10 @@ router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: false}));
 
 router.get('/', (req, res) => {
-  // User.findById(req.params.id)
-  //   .then(user => res.json(user.apiRepr()));
-  res.json({test: 'test'});
+  User
+    .find()
+    .then(user => {
+      return res.send(user);});
 });
 
 router.get('/:id', (req, res) => {
