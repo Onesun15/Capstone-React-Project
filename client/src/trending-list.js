@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchTrending } from './actions/index'
 import './trending-list.css';
+import NavBar from './nav-bar';
 
 
 class TrendingList extends Component {
@@ -23,6 +24,7 @@ class TrendingList extends Component {
     console.log(this.props)
     return (
         <div className="container">
+           <NavBar/>
             <h2>Walmart Trending Products</h2>
              <ul className='items'>{trending}</ul>
                   {/* {images} */}
