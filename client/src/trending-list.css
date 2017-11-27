@@ -6,6 +6,8 @@
 
 li {
   list-style: none;
+  color: white;
+  font-weight: 700px;
 }
 
 .items-list {
@@ -29,5 +31,7 @@ li {
 }
 
 .items-list:hover {
-  transform: scale(1.25);
+  transform: scale(1.05);
 }
+
+
