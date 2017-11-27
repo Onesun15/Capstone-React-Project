@@ -9,7 +9,6 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const { router: usersRouter} = require('./users/router');
 require('dotenv').config();
-
 const { User } = require('./users/models');
 const { PORT, CLIENT_ORIGIN } = require('./config');
 const { dbConnect } = require('./db-mongoose');
