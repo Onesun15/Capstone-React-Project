@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+li {
+  list-style: none;
+}
+
 .items-list {
   background-color: #d91515;
   height: 100%;
