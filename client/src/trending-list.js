@@ -16,6 +16,7 @@ class TrendingList extends Component {
       <button type="button" class="addButton">Add to Portfolio</button>
     
     </div>);
+    
     // const images = this.props.trending.map((product, index) =>
     //    <img key={index} src={`${product.mediumImage}`} alt="" className="img-responsive"/>);
     
