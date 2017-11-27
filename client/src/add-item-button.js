@@ -2,11 +2,19 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class AddItemButton extends Component {
+
   render() {
+     const onSubmit = e => e.preventDefault();
     return (
-        <div className='add-item-div'>
-          <button type="button" className="add-button">Add to Portfolio</button>
-        </div>
+      <form onSubmit={onSubmit}>
+      <input
+        type="submit"
+        id="add-item"
+        className="add-item"
+        name="submit"
+        value="Add Item"
+      />
+    </form>
     )
   }
 }
