@@ -57,7 +57,8 @@ router.post('/', (req, res) => {
     });
 });
 router.put('/:id', (req, res) => {
-  User.findByIdAndUpdate(req.params.id, {$push: {wishList:req.body.item.rating}},
+  console.log(req.body);
+  User.findByIdAndUpdate(req.params.id, {$push: {wishList:req.body.itemId}},
     function(err){
       if(err) {
         console.log(err);

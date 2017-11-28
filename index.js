@@ -16,8 +16,6 @@ const { dbConnect } = require('./db-mongoose');
 const app = express();
 passport.use(localStrategy);
 passport.use(jwtStrategy);
-app.use('/api/users/', usersRouter);
-app.use('/api/auth/', authRouter);
 
 app.use(
   morgan(process.env.NODE_ENV === 'production' ? 'common' : 'dev', {
@@ -30,10 +28,13 @@ app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
   if (req.method === 'OPTIONS') {
-    return res.send(204);
+    return res.sendStatus(204);
   }
   next();
 });
+
+app.use('/api/users/', usersRouter);
+app.use('/api/auth/', authRouter);
 
 function runServer(port = PORT) {
   const server = app

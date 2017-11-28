@@ -34,8 +34,8 @@ export const fetchTrending = () => dispatch => {
 };
 //${process.env.PORT || 8080}
 export const fetchAddItem = itemId => dispatch => {
-  return fetch(`${API_BASE_URL}/users/${itemId}`, {
-    method: 'POST',
+  return fetch(`${API_BASE_URL}/users/5a1c39e3734d1d3ed22f4382`, {
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
