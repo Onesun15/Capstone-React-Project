@@ -1,3 +1,6 @@
+import {API_BASE_URL} from '../config';
+
+
 export const FETCH_TRENDING_SUCCESS = 'FETCH_TRENDING_SUCCESS';
 export const fetchTrendingSuccess = trending => ({
   type: FETCH_TRENDING_SUCCESS,
@@ -31,7 +34,7 @@ export const fetchTrending = () => dispatch => {
 };
 //${process.env.PORT || 8080}
 export const fetchAddItem = itemId => dispatch => {
-  return fetch(`hello/api/users/${itemId}`, {
+  return fetch(`${API_BASE_URL}/users/${itemId}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
